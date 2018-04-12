@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recordid: 1
+  tip_amount: 1.5
+  extra: 1.5
+  mta_tax: 1.5
+  ratecodeid: 1
+  tolls_amount: 1.5
+  total_amount: 1.5
+  fare_amount: 1.5
+  improvement_surcharge: 1.5
+  payment_type: 1
+
+two:
+  recordid: 1
+  tip_amount: 1.5
+  extra: 1.5
+  mta_tax: 1.5
+  ratecodeid: 1
+  tolls_amount: 1.5
+  total_amount: 1.5
+  fare_amount: 1.5
+  improvement_surcharge: 1.5
+  payment_type: 1

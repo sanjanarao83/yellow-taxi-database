@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recordid:</strong>
+  <%= @fare.recordid %>
+</p>
+
+<p>
+  <strong>Tip amount:</strong>
+  <%= @fare.tip_amount %>
+</p>
+
+<p>
+  <strong>Extra:</strong>
+  <%= @fare.extra %>
+</p>
+
+<p>
+  <strong>Mta tax:</strong>
+  <%= @fare.mta_tax %>
+</p>
+
+<p>
+  <strong>Ratecodeid:</strong>
+  <%= @fare.ratecodeid %>
+</p>
+
+<p>
+  <strong>Tolls amount:</strong>
+  <%= @fare.tolls_amount %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @fare.total_amount %>
+</p>
+
+<p>
+  <strong>Fare amount:</strong>
+  <%= @fare.fare_amount %>
+</p>
+
+<p>
+  <strong>Improvement surcharge:</strong>
+  <%= @fare.improvement_surcharge %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @fare.payment_type %>
+</p>
+
+<%= link_to 'Edit', edit_fare_path(@fare) %> |
+<%= link_to 'Back', fares_path %>

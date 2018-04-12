@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recordid: 1
+  vendorid: 1
+  pickup_datetime: 2018-04-10 21:53:46
+  dropoff_datetime: 2018-04-10 21:53:46
+  passenger_count: 1
+  trip_distance: 1.5
+  store_and_fwd_flag: MyString
+
+two:
+  recordid: 1
+  vendorid: 1
+  pickup_datetime: 2018-04-10 21:53:46
+  dropoff_datetime: 2018-04-10 21:53:46
+  passenger_count: 1
+  trip_distance: 1.5
+  store_and_fwd_flag: MyString
