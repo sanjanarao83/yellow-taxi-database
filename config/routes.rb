@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'employees/about'
   get 'employees/contact'
   get 'employees/login'
-  get 'employees/register'
+  
   resources :fares
   resources :trips
   resources :employees
