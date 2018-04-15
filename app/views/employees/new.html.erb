@@ -1,9 +1,19 @@
 <html>
-<% provide(:title, "Register") %>
-<body>
-<h1>New Employee</h1>
-<%= render 'form', employee: @employee %>
-<%= link_to 'Back', employees_path %>
-
-</body>
+	<% provide(:title, "Register") %>
+	<head>
+        <%= render 'layouts/navigationBar'%>
+	</head>
+	<body>
+		<div class="container">
+			<div class="centered">
+        		<h1 style="text-align:center">Register</h1>
+     		</div>
+		    <div class="row">
+		        <div style="width: 30%; margin: 25px auto ">
+		            <%= render 'form', employee: @employee %>
+					<%= link_to 'Back', employees_path %>
+		        </div>
+		    </div>
+		</div>
+	</body>
 </html>

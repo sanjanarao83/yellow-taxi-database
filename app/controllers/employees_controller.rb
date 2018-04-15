@@ -14,6 +14,7 @@ class EmployeesController < ApplicationController
 
   #only check whether employee exists in employee table or not.
   def login
+    @employee = Employee.new
   end
 
   # GET /employees/new
