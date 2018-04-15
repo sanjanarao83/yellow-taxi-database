@@ -1,0 +1,67 @@
+<%= form_with(model: fare, local: true) do |form| %>
+  <% if fare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fare.errors.count, "error") %> prohibited this fare from being saved:</h2>
+
+      <ul>
+      <% fare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :recordid %>
+    <%= form.number_field :recordid, id: :fare_recordid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tip_amount %>
+    <%= form.text_field :tip_amount, id: :fare_tip_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :extra %>
+    <%= form.text_field :extra, id: :fare_extra %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mta_tax %>
+    <%= form.text_field :mta_tax, id: :fare_mta_tax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ratecodeid %>
+    <%= form.number_field :ratecodeid, id: :fare_ratecodeid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tolls_amount %>
+    <%= form.text_field :tolls_amount, id: :fare_tolls_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_amount %>
+    <%= form.text_field :total_amount, id: :fare_total_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fare_amount %>
+    <%= form.text_field :fare_amount, id: :fare_fare_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :improvement_surcharge %>
+    <%= form.text_field :improvement_surcharge, id: :fare_improvement_surcharge %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_type %>
+    <%= form.number_field :payment_type, id: :fare_payment_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

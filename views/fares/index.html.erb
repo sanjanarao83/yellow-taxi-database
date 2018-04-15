@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+
+    <!-- Cascading Style Sheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link">Trends</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href=<%=fares_path %>>Analytics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Manage Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Log Out</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    <div class="container-fluid divider"></div>
+
+  <div class="container-fluid py-4">
+  <button type="button" class="btn btn-outline-info" id="viewAnalytics">View Analytics</button>
+  </div>
+  <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0">
+              <table class="table table-responsive-md table-shadow" id="analytics-table">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Recordid</th>
+                    <th>Tip amount</th>
+                    <th>Extra</th>
+                    <th>Mta tax</th>
+                    <th>Ratecodeid</th>
+                    <th>Tolls amount</th>
+                    <th>Total amount</th>
+                    <th>Fare amount</th>
+                    <th>Improvement surcharge</th>
+                    <th>Payment type</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                <% @fares.each do |fare| %>
+                  <tr>
+                    <td><%= fare['RECORDID'] %></td>
+                    <td><%= fare['TIP_AMOUNT'] %></td>
+                    <td><%= fare['EXTRA'] %></td>
+                    <td><%= fare['MTA_TAX'] %></td>
+                    <td><%= fare['RATE_CODE'] %></td>
+                    <td><%= fare['TOLLS_AMOUNT'] %></td>
+                    <td><%= fare['TOTAL_AMOUNT'] %></td>
+                    <td><%= fare['FARE_AMOUNT'] %></td>
+                    <td><%= fare['IMP_SURCHARGE'] %></td>
+                    <td><%= fare['PAYMENT_TYPE'] %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+<br>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dashboard-manager.js"></script>
+</body>
+</html>
+
+
