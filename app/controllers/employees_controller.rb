@@ -10,36 +10,75 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @employee = Employee.find[params[:id]]
+  end
+
+  def validate(employee,username,pass)
+    if employee
+      if employee["USER_NAME"] == username && employee["EMP_PASSWORD"] == pass
+        redirect_to employees_contact_path
+      else
+        render :js => "alert('Invalid Username or Password')"
+        return false
+      end
+    else
+      render :js => "alert('Id does not exists')"
+      return false
+    end
+    return true
   end
 
   #only check whether employee exists in employee table or not.
   def login
-    @employee = Employee.new
+    @employees = Employee.new
   end
 
-  # GET /employees/new
+  def login_employee
+    @employee_id = params[:empid]
+    @username = params[:name]
+    @pass = params[:password]
+    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+    cursor = conn.parse("select * from employee where empid=#{@employee_id}")
+    cursor.exec
+    @employee = cursor.fetch_hash
+    if validate(@employee,@username,@pass)
+      render :js => "alert('Welcome!')"
+    else
+      render :js => "alert('Are you sure you are a USER yet?')"
+    end
+    conn.logoff
+  end
+
+  # GET /employees/NEW
   def new
     @employee = Employee.new
-  end
-
-  # GET /employees/1/edit
-  def edit
+    session[:passed_variable] = params
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    @employee = params[:employee]
+    @emp_type = "user"      
+    puts "********************** Found the #{@emp_type} **********************"
 
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    puts "********************** Found the #{@employee["empid"]} **********************"
+    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+    cursor = conn.parse("insert into employee values ('#{@employee["empid"]}','#{@employee["first_name"]}','#{@employee["last_name"]}','#{@employee["user_name"]}','#{@employee["emp_password"]}','#{@employee["contact"]}','#{@employee["email"]}','user')")
+    cursor.exec
+    #@employee = cursor.fetch_hash
+    if @employee
+      redirect_to fares_path
+      #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
+      #format.json { render :show, status: :created, location: @employee }
+    else
+      flash.now[:danger] = 'Sorry we could not register you :('   
     end
+    conn.logoff
+  end
+
+  # GET /employees/1/edit
+  def edit
   end
 
   # PATCH/PUT /employees/1
@@ -73,7 +112,11 @@ class EmployeesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def employee_params
-      params.fetch(:employee, {})
+    def register_params
+      params.require(:employee).permit(:first_name, :last_name, :email, :contact, :user_name, :emp_password)
+    end
+
+    def login_params
+      params.require(:employee).permit(:user_name, :empid, :emp_password)
     end
 end

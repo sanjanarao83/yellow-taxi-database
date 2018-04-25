@@ -1,33 +1,24 @@
 
 <%= form_with(model: employee, local: true) do |form| %>
-
-
   <div class="field">
+    <%= form.label :'Employee ID:' %>
+    <%= form.text_field :empid, id: :empid %>
+
     <%= form.label :'first name' %>
     <%= form.text_field :first_name, id: :first_name %>
-  </div>
 
-<div class="field">
     <%= form.label :'last name' %>
     <%= form.text_field :last_name, id: :last_name %>
-  </div>
 
-  <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :employee_email %>
-  </div>
 
-<div class="field">
     <%= form.label :contact %>
     <%= form.text_field :contact, id: :employee_contact %>
-  </div>
 
-<div class="field">
     <%= form.label :'user name' %>
     <%= form.text_field :name, id: :employee_username %>
-  </div>
 
-<div class="field">
     <%= form.label :password %>
     <%= form.password_field :password, id: :password_field_tag %>
   </div>
