@@ -16,7 +16,7 @@ class EmployeesController < ApplicationController
   def validate(employee,username,pass)
     if employee
       if employee["USER_NAME"] == username && employee["EMP_PASSWORD"] == pass
-        redirect_to employees_contact_path
+        redirect_to fares_path
       else
         render :js => "alert('Invalid Username or Password')"
         return false
@@ -64,11 +64,15 @@ class EmployeesController < ApplicationController
 
     puts "********************** Found the #{@employee["empid"]} **********************"
     conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor = conn.parse("insert into employee values ('#{@employee["empid"]}','#{@employee["first_name"]}','#{@employee["last_name"]}','#{@employee["user_name"]}','#{@employee["emp_password"]}','#{@employee["contact"]}','#{@employee["email"]}','user')")
+    cursor = conn.parse("insert into EMPLOYEE values ('#{@employee["empid"]}','#{@employee["first_name"]}','#{@employee["last_name"]}','#{@employee["user_name"]}','#{@employee["emp_password"]}','#{@employee["contact"]}','#{@employee["email"]}','user')")
     cursor.exec
-    #@employee = cursor.fetch_hash
-    if @employee
-      redirect_to fares_path
+    conn.logoff
+    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+    cursor2 = conn.parse("select * from employee where empid=#{@employee["empid"]}")
+    cursor2.exec
+    @employee_2 = cursor2.fetch_hash
+    if @employee_2#validate(@employee_2,@employee["user_name"],@employee["emp_password"])#@employee_d
+      render :js => "alert('Done!')"
       #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
       #format.json { render :show, status: :created, location: @employee }
     else
