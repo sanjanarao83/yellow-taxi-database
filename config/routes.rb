@@ -2,7 +2,16 @@ Rails.application.routes.draw do
   get 'employees/about'
   get 'employees/contact'
   get 'employees/login'
-  
+
+  #post 'fares' => 'fares#index'
+   post "fares" => "fares#onMonthSelect"
+
+   post "/employees/login" => "employees#login_employee"
+
+   resources :fares do
+       post :show
+     end
+
   resources :fares
   resources :trips
   resources :employees
