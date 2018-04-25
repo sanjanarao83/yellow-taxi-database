@@ -13,68 +13,81 @@ class EmployeesController < ApplicationController
     @employee = Employee.find[params[:id]]
   end
 
-  def validate(employee,username,pass)
-    if employee
-      if employee["USER_NAME"] == username && employee["EMP_PASSWORD"] == pass
-        redirect_to employees_contact_path
-      else
-        render :js => "alert('Invalid Username or Password')"
-        return false
-      end
-    else
-      render :js => "alert('Id does not exists')"
-      return false
-    end
-    return true
-  end
-
   #only check whether employee exists in employee table or not.
   def login
+    puts "*********************** LOGIN in EMPLOYEE ***************************"
     @employees = Employee.new
   end
 
+
   def login_employee
+        puts "********************** LOGIN_PARAMS "+" **********************"
+
+    puts "********************* LOGIN_EMPLOYEE in EMPLOYEE ***********************"
     @employee_id = params[:empid]
     @username = params[:name]
     @pass = params[:password]
     conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor = conn.parse("select * from employee where empid=#{@employee_id}")
+    cursor = conn.parse("select * from employee where empid="+@employee_id)
+
+  #  puts "********************** Found the "+login_params+" **********************"
     cursor.exec
+
     @employee = cursor.fetch_hash
-    if validate(@employee,@username,@pass)
-      render :js => "alert('Welcome!')"
+     # if @employee == 'NIL'
+     #   render :js => "alert('Invalid Username or Password')"
+     # end
+  puts @employee
+  puts "NAME YAHA AANA CHAHIE"
+   puts @employee["EMPID"]
+  puts @employee_id
+   puts @employee["USER_NAME"]
+  puts @username
+     puts @employee["EMP_PASSWORD"]
+    puts @pass
+
+if @employee
+
+    if @employee["USER_NAME"] == @username && @employee["EMP_PASSWORD"] == @pass
+   # puts "********************** Found the "+@employee.first_name+" **********************"
+      redirect_to fares_path
+      #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
+     # format.json { render :show, status: :created, location: @employee }
     else
-      render :js => "alert('Are you sure you are a USER yet?')"
+      render :js => "alert('Invalid Username or Password')"
+      #flash.now[:danger] = 'Invalid email/password combination or you are not a user yet.'
     end
+
+  else
+       render :js => "alert('Id does not exists')"
+  end
+
     conn.logoff
   end
 
+
+
+
   # GET /employees/NEW
   def new
+    puts "********************* NEW in EMPLOYEE ************************"
     @employee = Employee.new
-    session[:passed_variable] = params
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    @employee = params[:employee]
-    @emp_type = "user"      
-    puts "********************** Found the #{@emp_type} **********************"
-
-    puts "********************** Found the #{@employee["empid"]} **********************"
-    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor = conn.parse("insert into employee values ('#{@employee["empid"]}','#{@employee["first_name"]}','#{@employee["last_name"]}','#{@employee["user_name"]}','#{@employee["emp_password"]}','#{@employee["contact"]}','#{@employee["email"]}','user')")
-    cursor.exec
-    #@employee = cursor.fetch_hash
-    if @employee
-      redirect_to fares_path
-      #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
-      #format.json { render :show, status: :created, location: @employee }
-    else
-      flash.now[:danger] = 'Sorry we could not register you :('   
+    puts "********************* CREATE in EMPLOYEE ************************"
+    @employee = Employee.new(register_params)
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.json { render :show, status: :created, location: @employee }
+      else
+        format.html { render :new }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
     end
-    conn.logoff
   end
 
   # GET /employees/1/edit
