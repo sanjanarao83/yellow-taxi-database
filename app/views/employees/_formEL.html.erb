@@ -1,27 +1,16 @@
 <%= form_with(model: employee, local: true) do |form| %>
-  <% if employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+  <div class="field">
+    <%= form.label :'Employee ID' %>
+    <%= form.text_field :empid, id: :empid %>
 
-      <ul>
-      <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class="field">
-    <%= form.label :'user user_name' %>
+    <%= form.label :'User Name' %>
     <%= form.text_field :name, id: :employee_username %>
-  </div>
 
-<div class="field">
     <%= form.label :password %>
     <%= form.password_field :password, id: :password_field_tag %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Log In"%>
   </div>
 <% end %>

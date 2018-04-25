@@ -1,19 +1,25 @@
 <html>
 	<% provide(:title, "Login") %>
-	<head>   
+	<head>
 	    <%= render 'layouts/navigationBar'%>
 	</head>
+
+	<style>
+
+	.top{
+		padding-top: 50px;
+	}
+
+	</style>
 	<body>
-		<div class="container">
-			<div class="centered">
-		        <h1 style="text-align:center">Login</h1>
-     		</div>
-		    <div class="row">
-		        <div style="width: 30%; margin: 25px auto ">
+		<div class="container-fluid">
+
+		        <h1 class="top"></h1>
+
+
 		            <%= render 'formEL', employee: @employee %>
-		            <%= link_to 'Back', employees_path %>
-		        </div>
-		    </div>
+		           
+
 		</div>
 	</body>
 </html>
