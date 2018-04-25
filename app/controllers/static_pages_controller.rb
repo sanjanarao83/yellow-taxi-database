@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   def about
       def hello
           render html: "About Page"
+          
       end
   end
 
