@@ -1,0 +1,611 @@
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/ruby-oci8-2.2.5.1/ext/oci8
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180412-46521-1tkpbjc.rb extconf.rb
+checking for load library path... 
+  DYLD_LIBRARY_PATH is not set.
+  DYLD_FALLBACK_LIBRARY_PATH is not set.
+  checking OCI_DIR...
+    checking /opt/oracle/instantclient_12_2... yes
+  checking dependent shared libraries in /opt/oracle/instantclient_12_2/libclntsh.dylib.12.1...
+  /opt/oracle/instantclient_12_2/libclntsh.dylib.12.1 looks like an instant client.
+checking for cc... ok
+checking for gcc... yes
+checking for LP64... yes
+checking for sys/types.h... yes
+checking for ruby header... ok
+checking for OCIEnvCreate() in oci.h... yes
+checking for OCI_MAJOR_VERSION in oci.h... 12
+checking for OCI_MINOR_VERSION in oci.h... 2
+checking for localtime_r()... yes
+checking for dladdr()... yes
+checking for dlmodinfo()... no
+checking for dlgetname()... no
+checking for ruby/thread.h... yes
+checking for rb_class_superclass() in ruby.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for rb_sym2str() in ruby.h... yes
+checking for plthook... plthook_osx.c
+creating extconf.h
+creating Makefile
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/ruby-oci8-2.2.5.1/ext/oci8
+make "DESTDIR=" clean
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/ruby-oci8-2.2.5.1/ext/oci8
+make "DESTDIR="
+compiling oci8lib.c
+oci8lib.c:512:50: warning: implicit conversion loses integer precision: 'unsigned long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                           (text*)arg->sql_text, strlen(arg->sql_text), NULL, 0,
+                           ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:2372:55: note: expanded from macro 'OCIStmtPrepare2'
+      oci8_OCIStmtPrepare2(svchp, stmtp, errhp, stmt, stmt_len, key, key_len, language, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~                            ^~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+1 warning generated.
+compiling env.c
+compiling error.c
+compiling oci8.c
+oci8.c:559:51: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                              NIL_P(dbname) ? 0 : RSTRING_LEN(dbname),
+                              ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:1543:61: note: expanded from macro 'OCIServerAttach_nb'
+      oci8_OCIServerAttach_nb(svcctx, srvhp, errhp, dblink, dblink_len, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~                               ^~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+oci8.c:559:51: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                              NIL_P(dbname) ? 0 : RSTRING_LEN(dbname),
+                              ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:1543:61: note: expanded from macro 'OCIServerAttach_nb'
+      oci8_OCIServerAttach_nb(svcctx, srvhp, errhp, dblink, dblink_len, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~                               ^~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+oci8.c:860:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+oci8.c:860:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+oci8.c:895:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+oci8.c:895:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+oci8.c:929:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+oci8.c:929:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+oci8.c:960:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+oci8.c:960:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RSTRING_LEN(val);
+             ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+10 warnings generated.
+compiling ocihandle.c
+ocihandle.c:755:67: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    chker2(OCIAttrSet(base->hp.ptr, base->type, RSTRING_PTR(val), RSTRING_LEN(val), FIX2INT(attr_type), oci8_errhp), base);
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:63:58: note: expanded from macro 'OCIAttrSet'
+      oci8_OCIAttrSet(trgthndlp, trghndltyp, attributep, size, attrtype, errhp, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~                                    ^~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+ocihandle.c:755:67: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    chker2(OCIAttrSet(base->hp.ptr, base->type, RSTRING_PTR(val), RSTRING_LEN(val), FIX2INT(attr_type), oci8_errhp), base);
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:63:58: note: expanded from macro 'OCIAttrSet'
+      oci8_OCIAttrSet(trgthndlp, trghndltyp, attributep, size, attrtype, errhp, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~                                    ^~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+ocihandle.c:779:67: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    chker2(OCIAttrSet(base->hp.ptr, base->type, RSTRING_PTR(val), RSTRING_LEN(val), FIX2INT(attr_type), oci8_errhp), base);
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:63:58: note: expanded from macro 'OCIAttrSet'
+      oci8_OCIAttrSet(trgthndlp, trghndltyp, attributep, size, attrtype, errhp, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~                                    ^~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+ocihandle.c:779:67: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    chker2(OCIAttrSet(base->hp.ptr, base->type, RSTRING_PTR(val), RSTRING_LEN(val), FIX2INT(attr_type), oci8_errhp), base);
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:63:58: note: expanded from macro 'OCIAttrSet'
+      oci8_OCIAttrSet(trgthndlp, trghndltyp, attributep, size, attrtype, errhp, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~                                    ^~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+4 warnings generated.
+compiling connection_pool.c
+connection_pool.c:147:56: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(dbname) ? 0 : RSTRING_LEN(dbname),
+                                   ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:2092:89: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                      ^~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+connection_pool.c:147:56: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(dbname) ? 0 : RSTRING_LEN(dbname),
+                                   ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:2092:89: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                      ^~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+connection_pool.c:151:58: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(username) ? 0 : RSTRING_LEN(username),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:2092:142: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                           ^~~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+connection_pool.c:151:58: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(username) ? 0 : RSTRING_LEN(username),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:2092:142: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                           ^~~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+connection_pool.c:153:58: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(password) ? 0 : RSTRING_LEN(password),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:2092:169: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                                      ^~~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+connection_pool.c:153:58: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+                                   NIL_P(password) ? 0 : RSTRING_LEN(password),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:2092:169: note: expanded from macro 'OCIConnectionPoolCreate'
+      oci8_OCIConnectionPoolCreate(envhp, errhp, poolhp, poolName, poolNameLen, dblink, dblinkLen, connMin, connMax, connIncr, poolUserName, poolUserLen, poolPassword, poolPassLen, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                                      ^~~~~~~~~~~
+./oci8.h:349:49: note: expanded from macro 'chker2'
+#define chker2(status, base) oci8_check_error_((status), (base), NULL, __FILE__, __LINE__)
+                                                ^~~~~~
+6 warnings generated.
+compiling stmt.c
+stmt.c:80:106: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        rv = OCIStmtPrepare2(svcctx->base.hp.svc, &stmt->base.hp.stmt, oci8_errhp, RSTRING_ORATEXT(sql), RSTRING_LEN(sql), NULL, 0, OCI_NTV_SYNTAX, OCI_DEFAULT);
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^
+./apiwrap.h:2372:55: note: expanded from macro 'OCIStmtPrepare2'
+      oci8_OCIStmtPrepare2(svchp, stmtp, errhp, stmt, stmt_len, key, key_len, language, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~                            ^~~~~~~~
+stmt.c:80:106: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        rv = OCIStmtPrepare2(svcctx->base.hp.svc, &stmt->base.hp.stmt, oci8_errhp, RSTRING_ORATEXT(sql), RSTRING_LEN(sql), NULL, 0, OCI_NTV_SYNTAX, OCI_DEFAULT);
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+                           ^
+./apiwrap.h:2372:55: note: expanded from macro 'OCIStmtPrepare2'
+      oci8_OCIStmtPrepare2(svchp, stmtp, errhp, stmt, stmt_len, key, key_len, language, mode, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~                            ^~~~~~~~
+stmt.c:172:31: warning: implicit conversion loses integer precision: 'unsigned long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        placeholder_len = len + 1;
+                        ~ ~~~~^~~
+stmt.c:180:27: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        placeholder_len = RSTRING_LEN(vplaceholder);
+                        ~ ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+stmt.c:180:27: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        placeholder_len = RSTRING_LEN(vplaceholder);
+                        ~ ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+5 warnings generated.
+compiling bind.c
+bind.c:64:18: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+    vstr->size = RSTRING_LEN(val);
+               ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bind.c:64:18: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+    vstr->size = RSTRING_LEN(val);
+               ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+bind.c:174:18: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+    vstr->size = RSTRING_LEN(val);
+               ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bind.c:174:18: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+    vstr->size = RSTRING_LEN(val);
+               ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+bind.c:381:16: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        size = RARRAY_LEN(val);
+             ~ ^~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:1021:23: note: expanded from macro 'RARRAY_LEN'
+#define RARRAY_LEN(a) rb_array_len(a)
+                      ^~~~~~~~~~~~~~~
+5 warnings generated.
+compiling metadata.c
+metadata.c:214:44: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    metadata = oci8_do_describe(self, str, len, OCI_OTYPE_NAME, klass, check_public);
+               ~~~~~~~~~~~~~~~~            ^~~
+1 warning generated.
+compiling attr.c
+compiling lob.c
+compiling oradate.c
+compiling ocinumber.c
+ocinumber.c:157:63: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+        int rv = oranumber_from_str(result, RSTRING_PTR(str), RSTRING_LEN(str));
+                 ~~~~~~~~~~~~~~~~~~                           ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:157:63: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+        int rv = oranumber_from_str(result, RSTRING_PTR(str), RSTRING_LEN(str));
+                 ~~~~~~~~~~~~~~~~~~                           ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:175:15: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    fmt_len = RSTRING_LEN(fmt);
+            ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:175:15: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    fmt_len = RSTRING_LEN(fmt);
+            ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:182:26: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        nls_params_len = RSTRING_LEN(nls_params);
+                       ~ ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:182:26: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        nls_params_len = RSTRING_LEN(nls_params);
+                       ~ ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:185:52: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                             RSTRING_ORATEXT(str), RSTRING_LEN(str),
+                             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:908:40: note: expanded from macro 'OCINumberFromText'
+      oci8_OCINumberFromText(err, str, str_length, fmt, fmt_length, nls_params, nls_p_length, number, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~           ^~~~~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+ocinumber.c:185:52: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                             RSTRING_ORATEXT(str), RSTRING_LEN(str),
+                             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:908:40: note: expanded from macro 'OCINumberFromText'
+      oci8_OCINumberFromText(err, str, str_length, fmt, fmt_length, nls_params, nls_p_length, number, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~           ^~~~~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+ocinumber.c:250:26: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+            digits_len = RSTRING_LEN(ary[1]);
+                       ~ ^~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:250:26: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+            digits_len = RSTRING_LEN(ary[1]);
+                       ~ ^~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:366:59: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+        rv = oranumber_from_str(result, RSTRING_PTR(str), RSTRING_LEN(str));
+             ~~~~~~~~~~~~~~~~~~                           ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:366:59: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+        rv = oranumber_from_str(result, RSTRING_PTR(str), RSTRING_LEN(str));
+             ~~~~~~~~~~~~~~~~~~                           ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:1310:15: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    fmt_len = RSTRING_LEN(fmt);
+            ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:1310:15: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    fmt_len = RSTRING_LEN(fmt);
+            ~ ^~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:1317:26: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        nls_params_len = RSTRING_LEN(nls_params);
+                       ~ ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ocinumber.c:1317:26: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+        nls_params_len = RSTRING_LEN(nls_params);
+                       ~ ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+ocinumber.c:1438:62: warning: implicit conversion loses integer precision: 'unsigned long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+    chkerr(OCINumberToText(errhp, num, (const oratext *)fmt, strlen(fmt),
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+./apiwrap.h:1308:46: note: expanded from macro 'OCINumberToText'
+      oci8_OCINumberToText(err, number, fmt, fmt_length, nls_params, nls_p_length, buf_size, buf, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~                   ^~~~~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+17 warnings generated.
+compiling ocidatetime.c
+compiling object.c
+object.c:470:57: warning: implicit conversion loses integer precision: 'long' to 'sb4' (aka 'int') [-Wshorten-64-to-32]
+        chkerr(OCICollTrim(oci8_envhp, oci8_errhp, size - RARRAY_LEN(val), coll));
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:263:34: note: expanded from macro 'OCICollTrim'
+      oci8_OCICollTrim(env, err, trim_num, coll, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~           ^~~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+object.c:542:58: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                                   RSTRING_ORATEXT(val), RSTRING_LEN(val),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:1673:47: note: expanded from macro 'OCIStringAssignText'
+      oci8_OCIStringAssignText(env, err, rhs, rhs_len, lhs, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~                ^~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+object.c:542:58: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                                   RSTRING_ORATEXT(val), RSTRING_LEN(val),
+                                   ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:1673:47: note: expanded from macro 'OCIStringAssignText'
+      oci8_OCIStringAssignText(env, err, rhs, rhs_len, lhs, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~~~                ^~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+object.c:548:56: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                                 RSTRING_ORATEXT(val), RSTRING_LEN(val),
+                                 ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:975:6: note: expanded from macro 'RSTRING_LEN'
+     RSTRING_EMBED_LEN(str) : \
+     ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:971:6: note: expanded from macro 'RSTRING_EMBED_LEN'
+     (long)((RBASIC(str)->flags >> RSTRING_EMBED_LEN_SHIFT) & \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./apiwrap.h:1485:45: note: expanded from macro 'OCIRawAssignBytes'
+      oci8_OCIRawAssignBytes(env, err, rhs, rhs_len, lhs, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~                ^~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+object.c:548:56: warning: implicit conversion loses integer precision: 'long' to 'ub4' (aka 'unsigned int') [-Wshorten-64-to-32]
+                                 RSTRING_ORATEXT(val), RSTRING_LEN(val),
+                                 ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.5.1/include/ruby-2.5.0/ruby/ruby.h:976:28: note: expanded from macro 'RSTRING_LEN'
+     RSTRING(str)->as.heap.len)
+     ~~~~~~~~~~~~~~~~~~~~~~^~~
+./apiwrap.h:1485:45: note: expanded from macro 'OCIRawAssignBytes'
+      oci8_OCIRawAssignBytes(env, err, rhs, rhs_len, lhs, __FILE__, __LINE__)
+      ~~~~~~~~~~~~~~~~~~~~~~                ^~~~~~~
+./oci8.h:348:43: note: expanded from macro 'chkerr'
+#define chkerr(status) oci8_check_error_((status), NULL, NULL, __FILE__, __LINE__)
+                                          ^~~~~~
+5 warnings generated.
+compiling apiwrap.c
+compiling encoding.c
+compiling oranumber_util.c
+compiling thread_util.c
+compiling util.c
+compiling plthook_osx.c
+plthook_osx.c:158:33: warning: comparison of integers of different signs: 'int' and 'unsigned long' [-Wsign-compare]
+    for (flag_idx = 0; flag_idx < NUM_FLAGS; flag_idx++) {
+                       ~~~~~~~~ ^ ~~~~~~~~~
+plthook_osx.c:208:19: warning: comparison of integers of different signs: 'int' and 'const uint32_t' (aka 'const unsigned int') [-Wsign-compare]
+    for (i = 0; i < mh->ncmds; i++) {
+                ~ ^ ~~~~~~~~~
+plthook_osx.c:248:46: warning: implicit conversion loses integer precision: 'unsigned long long' to 'int' [-Wshorten-64-to-32]
+                addrdiff = segment64->vmaddr - segment64->fileoff;
+                         ~ ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+plthook_osx.c:387:69: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'int' [-Wshorten-64-to-32]
+            set_bind_addr(&idx, plthook, base, sym_name, seg_index, seg_offset, segments);
+            ~~~~~~~~~~~~~                                           ^~~~~~~~~~
+plthook_osx.c:395:69: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'int' [-Wshorten-64-to-32]
+            set_bind_addr(&idx, plthook, base, sym_name, seg_index, seg_offset, segments);
+            ~~~~~~~~~~~~~                                           ^~~~~~~~~~
+plthook_osx.c:400:21: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'int' [-Wshorten-64-to-32]
+            count = uleb128(&ptr);
+                  ~ ^~~~~~~~~~~~~
+plthook_osx.c:401:20: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'int' [-Wshorten-64-to-32]
+            skip = uleb128(&ptr);
+                 ~ ^~~~~~~~~~~~~
+plthook_osx.c:403:73: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'int' [-Wshorten-64-to-32]
+                set_bind_addr(&idx, plthook, base, sym_name, seg_index, seg_offset, segments);
+                ~~~~~~~~~~~~~                                           ^~~~~~~~~~
+plthook_osx.c:416:48: warning: implicit conversion loses integer precision: 'uint64_t' (aka 'unsigned long long') to 'uint32_t' (aka 'unsigned int') [-Wshorten-64-to-32]
+        uint32_t vmaddr = segments[seg_index]->vmaddr;
+                 ~~~~~~   ~~~~~~~~~~~~~~~~~~~~~^~~~~~
+9 warnings generated.
+compiling hook_funcs.c
+linking shared-object oci8lib_250.bundle
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/ruby-oci8-2.2.5.1/ext/oci8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 oci8lib_250.bundle ./.gem.20180412-46521-5igy9k

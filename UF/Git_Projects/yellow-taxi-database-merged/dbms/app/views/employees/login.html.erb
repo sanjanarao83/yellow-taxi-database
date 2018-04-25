@@ -1,0 +1,29 @@
+<html>
+	<% provide(:title, "Login") %>
+	<head>
+	    <%= render 'layouts/navigationBar'%>
+	</head>
+
+	<style>
+
+	.top{
+		padding-top: 50px;
+	}
+
+	</style>
+
+	<body>
+
+
+
+		<div class="container-fluid">
+
+		        <h1 class="top"></h1>
+
+
+		            <%= render 'formEL', employee: @employee %>
+		           
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+
+<%= form_with(model: employee, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :'first name' %>
+    <%= form.text_field :first_name, id: :first_name %>
+
+    <%= form.label :'last name' %>
+    <%= form.text_field :last_name, id: :last_name %>
+
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :employee_email %>
+
+    <%= form.label :contact %>
+    <%= form.text_field :contact, id: :employee_contact %>
+
+    <%= form.label :'user name' %>
+    <%= form.text_field :name, id: :employee_username %>
+
+
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :password_field_tag %>
+  </div>
+
+  <div class="actions" >
+    <%= form.submit "Register" %>
+  </div>
+
+
+<% end %>

@@ -1,0 +1,15 @@
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180411-31184-1wfxc9m.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/sakshi/dbms/vendor/bundle/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20180411-31184-wlu636/bindex

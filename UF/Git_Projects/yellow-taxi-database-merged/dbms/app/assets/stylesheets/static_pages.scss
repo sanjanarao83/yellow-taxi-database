@@ -1,0 +1,71 @@
+body, html {
+    height: 100%;
+}
+
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+.centered {
+
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+
+    height: 100%;
+    text-align: center;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgba(200, 200, 200, 0.6);
+
+}
+
+.container-fluid{
+  background-color: rgba(200, 200, 200, 0.6);
+  padding-bottom: 8px;
+}
+
+
+h1{
+  font-family: 'Patua One', cursive;
+  color: black;
+  font-size: 60px;
+}

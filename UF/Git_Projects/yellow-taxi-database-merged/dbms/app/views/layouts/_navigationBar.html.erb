@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="shortcut icon" type="image/x-icon" image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDxwzuGX35ThMTpt-0qX6HJLTvVUjvrvPdW5A2vX7Prir289kE"/>
+	<link rel="stylesheet" href="/static_pages.scss">
+
+	</head>
+
+
+	<style>
+		html,body{
+		    height: 100%;
+		    text-align: center;
+		    background-image: url("https://favim.com/610/201106/29/Favim.com-cab-car-cars-city-new-york-new-york-city-87212.jpg");
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-attachment: fixed;
+		    background-size: cover;
+        background-color: rgba(255, 255, 255, 0.9);
+
+		}
+	</style>
+
+  	<body>
+			<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light">
+				 <div class="container-fluid">
+					 <a href=<%=employees_path %>>
+							 <i class="navbar-header material-icons" style="font-size:48px;">local_taxi</i>
+            </a>
+						 <div>
+								 <ul class="nav navbar-nav">
+										 <li class="dropdown-header"><%= link_to 'About', employees_about_path %></li>
+										 <li class="dropdown-header"><%= link_to 'Login', employees_login_path %></li>
+										 <li class="dropdown-header"><%= link_to 'Register', new_employee_path %></li>
+										 <li class="dropdown-header"><%= link_to 'Contact', employees_contact_path %></li>
+								 </ul>
+						 </div>
+				 </div>
+		 </nav>
+	</body>
+</html>
