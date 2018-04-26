@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       post :show
     end
   end
-
+  
   resources :fares
   resources :trips
   resources :employees
