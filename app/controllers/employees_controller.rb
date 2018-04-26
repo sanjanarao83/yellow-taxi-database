@@ -42,7 +42,7 @@ class EmployeesController < ApplicationController
     cursor.exec
     @employee = cursor.fetch_hash
     if validate(@employee,@username,@pass)
-      render :js => "alert('Welcome!')"
+     # render :js => "alert('Welcome!')"
     else
       render :js => "alert('Are you sure you are a USER yet?')"
     end
@@ -52,7 +52,20 @@ class EmployeesController < ApplicationController
   # GET /employees/NEW
   def new
     @employee = Employee.new
-    session[:passed_variable] = params
+  end
+
+  def exists(empid)
+   # @emp=empid
+    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+    cursor = conn.parse("select * from employee where empid='"+empid+"'")
+    cursor.exec
+    @employee = cursor.fetch_hash
+    if @employee
+      return true
+    else
+      return false
+    end
+    conn.logoff
   end
 
   # POST /employees
@@ -60,25 +73,26 @@ class EmployeesController < ApplicationController
   def create
     @employee = params[:employee]
     @emp_type = "user"      
-    puts "********************** Found the #{@emp_type} **********************"
-
-    puts "********************** Found the #{@employee["empid"]} **********************"
-    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor = conn.parse("insert into EMPLOYEE values ('#{@employee["empid"]}','#{@employee["first_name"]}','#{@employee["last_name"]}','#{@employee["user_name"]}','#{@employee["emp_password"]}','#{@employee["contact"]}','#{@employee["email"]}','user')")
-    cursor.exec
-    conn.logoff
-    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor2 = conn.parse("select * from employee where empid=#{@employee["empid"]}")
-    cursor2.exec
-    @employee_2 = cursor2.fetch_hash
-    if @employee_2#validate(@employee_2,@employee["user_name"],@employee["emp_password"])#@employee_d
-      render :js => "alert('Done!')"
-      #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
-      #format.json { render :show, status: :created, location: @employee }
+    puts "********** EMPLOYEE: #{@employee} ***********"
+    puts "********** EMPLOYEE ID: #{@employee["empid"]} ***********"
+    if exists(@employee["empid"])
+      conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+      conn.exec("update EMPLOYEE set first_name='#{@employee["first_name"]}',
+       last_name='#{@employee["last_name"]}', user_name='#{@employee["user_name"]}',
+       emp_password='#{@employee["emp_password"]}',contact='#{@employee["contact"]}',
+       email='#{@employee["email"]}',emp_type='user' WHERE EMPLOYEE.empid='#{@employee["empid"]}'")
+      conn.commit
+      #conn.autocommit = true
+      puts "*********** CONN ***********"
+      puts conn
+      puts "*********** END CONN ***********"
+      conn.logoff
+      puts "*********** logoff CONN ***********"
+      redirect_to fares_path
     else
-      flash.now[:danger] = 'Sorry we could not register you :('   
+      render :js => "alert('Are you sure you are a USER yet?')"
+      redirect_to employees_path
     end
-    conn.logoff
   end
 
   # GET /employees/1/edit

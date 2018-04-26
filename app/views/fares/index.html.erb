@@ -1,42 +1,71 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
 
-<h1>Fares</h1>
+    <!-- Cascading Style Sheets -->
+    <link href="/app/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/app/assets/stylesheets/analytics.css" rel="stylesheet">
+</head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Recordid</th>
-      <th>Tip amount</th>
-      <th>Extra</th>
-      <th>Mta tax</th>
-      <th>Ratecodeid</th>
-      <th>Tolls amount</th>
-      <th>Total amount</th>
-      <th>Fare amount</th>
-      <th>Improvement surcharge</th>
-      <th>Payment type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @fares.each do |fare| %>
-      <tr>
-        <td><%= fare['RECORDID'] %></td>
-        <td><%= fare['TIP_AMOUNT'] %></td>
-        <td><%= fare['EXTRA'] %></td>
-        <td><%= fare['MTA_TAX'] %></td>
-        <td><%= fare['RATE_CODE'] %></td>
-        <td><%= fare['TOLLS_AMOUNT'] %></td>
-        <td><%= fare['TOTAL_AMOUNT'] %></td>
-        <td><%= fare['FARE_AMOUNT'] %></td>
-        <td><%= fare['IMP_SURCHARGE'] %></td>
-        <td><%= fare['PAYMENT_TYPE'] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href=<%=fares_path %>>Analytics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=<%=employees_path %>>Log Out</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    <div class="container-fluid divider"></div>
 
+    <div class="container-fluid py-4"></div>
+    <div class="container-fluid">
+       <!-- <div class="row"> -->
+             <!--<div class="container col-lg-10 col-md-12 offset-lg-1 offset-md-0">-->
+            <!--Grid row-->
+            <div class="row">
+                <!--Name-->
+                 <div class="col-lg-3 col-md-6">
+                <%= form_with url: fares_path do |f| %>
+                        <%= f.select :month, { "January" => "01", "February" => "02", "March" => "03", "April" => "04", "May" => "05", "June" => "06", "July" => "07", "August" => "08", "September" => "09", "October" => "10", "November" => "11", "December" => "12" }, { include_blank: 'Filter Month' }, { :class => 'custom-select py-0 table-shadow' } %>
+                </div>
+                <!--btn btn-outline-info table-shadow-->
+                <div class="col-lg-3 col-md-6">
+                        <%= f.select :year, { "2015" => "2015", "2016" => "2016", "2017" => "2017" }, { include_blank: 'Filter Year' }, { :class => 'custom-select py-0 table-shadow' } %>
+                </div>
+                <div class="col-lg-3 col-md-6"> 
+                        <%= f.select :request, { "Get total trips" => "getTotalTrips", "Get Max Toll Amount" => "getMaxTollAmt", "Get difference in fare amount for equal trip distances" => "getDifferenceInFareAmt", "Get location-wise total pickups and total amount collected" => "getTotalPickups", "Get location-wise total dropoffs and total amount collected" => "getTotalDropOffs", "Get monthly total round trips" => "getRoundTrips", "Get count of different payment types" => "getPaymentType", "Get total trips for different times of the day" => "getTripsBasedOnTime" }, { include_blank: 'Select Analytics' }, { :class => 'custom-select py-0 table-shadow' } %>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                        <%= button_to "Show Results", {:controller => "fares", :action => "view" }, {:class => 'btn btn-outline-info table-shadow', :method => :get } %>
+                </div>
+                <% end %>
+            </div>
+            <!--</div>-->
+            <!--Grid row-->
+            <!--Top Table UI-->
+            </br>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <label class="label">Select the query, month and year as required and click on show results. </br> When no filters are selected, results will display the total number tuples in the database</label>
+        </div>
+    <!-- </div> -->
 <br>
 
-<%= link_to 'New Fare', new_fare_path %>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/app/assets/javascripts/popper.min.js"></script>
+    <script src="/app/assets/javascripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+
