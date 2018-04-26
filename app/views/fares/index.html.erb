@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
-
     <!-- Cascading Style Sheets -->
     <link href="/app/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="/app/assets/stylesheets/analytics.css" rel="stylesheet">
@@ -15,17 +14,11 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link">Trends</a>
-            </li>
             <li class="nav-item active">
                 <a class="nav-link" href=<%=fares_path %>>Analytics</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Manage Account</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">Log Out</a>
+                <a class="nav-link" href=<%=employees_path %>>Log Out</a>
             </li>
           </ul>
       </div>
@@ -35,124 +28,34 @@
     <div class="container-fluid py-4"></div>
     <div class="container-fluid">
        <!-- <div class="row"> -->
-            <div class="container col-lg-10 col-md-12 offset-lg-1 offset-md-0">
+             <!--<div class="container col-lg-10 col-md-12 offset-lg-1 offset-md-0">-->
             <!--Grid row-->
             <div class="row">
-
-            <!--Grid column-->
-                <div class="col-lg-3 col-md-12">
                 <!--Name-->
-                    <%= form_with url: fares_path do |f| %>
-                        <%= f.select :month, { "January" => "01", "February" => "02", "March" => "03", "April" => "04", "May" => "05", "June" => "06", "July" => "07", "August" => "08", "September" => "09", "October" => "10", "November" => "11", "December" => "12" }, { include_blank: 'Please choose' } %>
-                        <%= f.select :year, { "2015" => "2015", "2016" => "2016", "2017" => "2017" }, { include_blank: 'Please choose' } %>
-                        <%= button_to "Get Passenger Count", {:controller => "fares", :action => "onMonthSelect"}, :method => :get %>
-                    <% end %>
-                    <!--<select id="category_id" name="category[id]" class="custom-select py-0 table-shadow">
-                        <option value="" disabled selected>Select Month</option>
-                        <option value="01">January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select> -->
-
+                 <div class="col-lg-3 col-md-6">
+                <%= form_with url: fares_path do |f| %>
+                        <%= f.select :month, { "January" => "01", "February" => "02", "March" => "03", "April" => "04", "May" => "05", "June" => "06", "July" => "07", "August" => "08", "September" => "09", "October" => "10", "November" => "11", "December" => "12" }, { include_blank: 'Filter Month' }, { :class => 'custom-select py-0 table-shadow' } %>
                 </div>
-                <!--Grid column-->
-
-            <!--Grid column-->
+                <!--btn btn-outline-info table-shadow-->
                 <div class="col-lg-3 col-md-6">
-
-            <!--Blue select-->
-                    <!--<select class="custom-select py-0 table-shadow">
-                        <option value="" disabled selected>Select Year</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                    </select>-->
-            <!--/Blue select-->
-
+                        <%= f.select :year, { "2015" => "2015", "2016" => "2016", "2017" => "2017" }, { include_blank: 'Filter Year' }, { :class => 'custom-select py-0 table-shadow' } %>
                 </div>
-        <!--Grid column-->
-        <!--Grid column-->
-                <div class="col-lg-3 col-md-6 table-shadow">
-                    <!--<button type="button" class="btn btn-outline-info table-shadow" data-toggle="tooltip" data-placement="bottom" title="Get monthly count of passengers for the given year" id="viewAnalytics">Get Passenger Count</button>-->
+                <div class="col-lg-3 col-md-6"> 
+                        <%= f.select :request, { "Get total trips" => "getTotalTrips", "Get Max Toll Amount" => "getMaxTollAmt", "Get difference in fare amount for equal trip distances" => "getDifferenceInFareAmt", "Get location-wise total pickups and total amount collected" => "getTotalPickups", "Get location-wise total dropoffs and total amount collected" => "getTotalDropOffs", "Get monthly total round trips" => "getRoundTrips", "Get count of different payment types" => "getPaymentType", "Get total trips for different times of the day" => "getTripsBasedOnTime" }, { include_blank: 'Select Analytics' }, { :class => 'custom-select py-0 table-shadow' } %>
                 </div>
-        <!--Grid column-->
+                <div class="col-lg-3 col-md-6">
+                        <%= button_to "Show Results", {:controller => "fares", :action => "view" }, {:class => 'btn btn-outline-info table-shadow', :method => :get } %>
+                </div>
+                <% end %>
             </div>
+            <!--</div>-->
             <!--Grid row-->
             <!--Top Table UI-->
             </br>
-                <div class="table-responsive">
-                    <% if @fares then %>
-                        <table id="tblanalytics" class="table table-responsive-md table-shadow" id="analytics-table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <% @fares.first.keys.each do |key| %>
-                                    <th><%= key %></th>
-                                    <% end %>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% @fares.each do |fare| %>
-                                <tr>
-                                    <% fare.each do |key, value| %>
-                                    <td><%= value %></td>
-                                    <% end %>
-                                </tr>
-                                <% end %>
-                            </tbody>
-                        </table>
-                    <% end %>
-                </div>
-
-            <div class="d-flex justify-content-between">
-            <!--Name-->
-                        <div class="col-lg-3 col-md-4">
-                            <select class="custom-select py-0 table-shadow">
-                                <option value="" disabled >Rows number</option>
-                                <option value="1" selected>10 rows</option>
-                                <option value="2">20 rows</option>
-                                <option value="3">30 rows</option>
-                            </select>
-                        </div>
-            <!--Pagination -->
-                        <div class="col-md-4">
-                            <ul class="pagination pagination-circle pg-blue mb-0 table-shadow">
-                    <!--First-->
-                                <li class="page-item disabled"><a class="page-link">First</a></li>
-                    <!--Arrow left-->
-                                <li class="page-item disabled">
-                                    <a class="page-link" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                    <!--Numbers-->
-                                <li class="page-item active"><a class="page-link">1</a></li>
-                                <li class="page-item"><a class="page-link">2</a></li>
-                                <li class="page-item"><a class="page-link">3</a></li>
-
-                    <!--Arrow right-->
-                                <li class="page-item">
-                                    <a class="page-link" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                    <!--First-->
-                                <li class="page-item"><a class="page-link">Last</a></li>
-                            </ul>
-                        </div>
-                        <!--/Pagination -->
-
-                    </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <label class="label">Select the query, month and year as required and click on show results. </br> When no filters are selected, results will display the total number tuples in the database</label>
         </div>
     <!-- </div> -->
 <br>

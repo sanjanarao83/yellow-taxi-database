@@ -13,80 +13,85 @@ class EmployeesController < ApplicationController
     @employee = Employee.find[params[:id]]
   end
 
+  def validate(employee,username,pass)
+    if employee
+      if employee["USER_NAME"] == username && employee["EMP_PASSWORD"] == pass
+        redirect_to fares_path
+      else
+        render :js => "alert('Invalid Username or Password')"
+        return false
+      end
+    else
+      render :js => "alert('Id does not exists')"
+      return false
+    end
+    return true
+  end
+
   #only check whether employee exists in employee table or not.
   def login
-    puts "*********************** LOGIN in EMPLOYEE ***************************"
     @employees = Employee.new
   end
 
-
   def login_employee
-        puts "********************** LOGIN_PARAMS "+" **********************"
-
-    puts "********************* LOGIN_EMPLOYEE in EMPLOYEE ***********************"
     @employee_id = params[:empid]
     @username = params[:name]
     @pass = params[:password]
     conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
-    cursor = conn.parse("select * from employee where empid="+@employee_id)
-
-  #  puts "********************** Found the "+login_params+" **********************"
+    cursor = conn.parse("select * from employee where empid=#{@employee_id}")
     cursor.exec
-
     @employee = cursor.fetch_hash
-     # if @employee == 'NIL'
-     #   render :js => "alert('Invalid Username or Password')"
-     # end
-  puts @employee
-  puts "NAME YAHA AANA CHAHIE"
-   puts @employee["EMPID"]
-  puts @employee_id
-   puts @employee["USER_NAME"]
-  puts @username
-     puts @employee["EMP_PASSWORD"]
-    puts @pass
-
-if @employee
-
-    if @employee["USER_NAME"] == @username && @employee["EMP_PASSWORD"] == @pass
-   # puts "********************** Found the "+@employee.first_name+" **********************"
-      redirect_to fares_path
-      #format.html { redirect_to @employee, notice: 'You have successfully logged in.' }
-     # format.json { render :show, status: :created, location: @employee }
+    if validate(@employee,@username,@pass)
+     # render :js => "alert('Welcome!')"
     else
-      render :js => "alert('Invalid Username or Password')"
-      #flash.now[:danger] = 'Invalid email/password combination or you are not a user yet.'
+      render :js => "alert('Are you sure you are a USER yet?')"
     end
-
-  else
-       render :js => "alert('Id does not exists')"
-  end
-
     conn.logoff
   end
 
-
-
-
   # GET /employees/NEW
   def new
-    puts "********************* NEW in EMPLOYEE ************************"
     @employee = Employee.new
+  end
+
+  def exists(empid)
+   # @emp=empid
+    conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+    cursor = conn.parse("select * from employee where empid='"+empid+"'")
+    cursor.exec
+    @employee = cursor.fetch_hash
+    if @employee
+      return true
+    else
+      return false
+    end
+    conn.logoff
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    puts "********************* CREATE in EMPLOYEE ************************"
-    @employee = Employee.new(register_params)
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    @employee = params[:employee]
+    @emp_type = "user"      
+    puts "********** EMPLOYEE: #{@employee} ***********"
+    puts "********** EMPLOYEE ID: #{@employee["empid"]} ***********"
+    if exists(@employee["empid"])
+      conn = OCI8.new('sanjana', 'Srvrtvk83!', 'oracle.cise.ufl.edu/orcl')
+      conn.exec("update EMPLOYEE set first_name='#{@employee["first_name"]}',
+       last_name='#{@employee["last_name"]}', user_name='#{@employee["user_name"]}',
+       emp_password='#{@employee["emp_password"]}',contact='#{@employee["contact"]}',
+       email='#{@employee["email"]}',emp_type='user' WHERE EMPLOYEE.empid='#{@employee["empid"]}'")
+      conn.commit
+      #conn.autocommit = true
+      puts "*********** CONN ***********"
+      puts conn
+      puts "*********** END CONN ***********"
+      conn.logoff
+      puts "*********** logoff CONN ***********"
+      redirect_to fares_path
+    else
+      render :js => "alert('Are you sure you are a USER yet?')"
+      redirect_to employees_path
     end
   end
 
